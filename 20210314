@@ -1,0 +1,101 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Mar 14 12:08:11 2021
+
+@author: user
+"""
+
+"""
+使用者輸入一個範圍的整數
+    求--> 4的倍數有哪些?
+    求-->哪些是質數 (EX:5-> 2,3,4是否整除5)
+"""
+
+start = int(input("初始值:"))
+end = int(input("終止值:"))
+print(list(range(start,end+1)))
+
+for a in range(start,end+1):
+    if a % 4 == 0:
+        print(a,'是4的倍數')
+
+
+for n in range(start,end+1):
+    for b in range(2,n):
+        if n % b == 0:
+            break
+        elif b == n-1:
+            print(n,'是質數')
+    if n == 2:
+        print(n,'是質數')
+
+        
+        
+    
+
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Mar 14 14:12:25 2021
+
+@author: user
+"""
+"""
+min=1
+max=100
+ex:ans=61
+    guess=71
+   顯示:1-70之間
+*猜錯5次離開-->已答錯5次
+"""
+import random
+min = 1
+max = 100
+answer = random.randint(min, max)
+
+k = 0
+while True:
+    guess = input('密碼介於 ' + str(min) + '-' + str(max) + ':\n>>')
+ 
+    #檢查輸入的內容是否為數字
+    try:
+        guess = int(guess)  #把字串轉換成整數
+    except ValueError:  #轉換失敗便要求重新輸入數字
+        print('格式錯誤，請輸入數字\n')
+        continue
+ 
+    #檢查輸入的數字是否介於規定範圍內
+    if guess <= min or guess >= max:
+        print('請輸入 ' + str(min) + '-' + str(max) + ' 之間的整數\n')
+        continue
+    k += 1
+    if k == 5:
+        print('已猜錯5次')
+        break
+    if guess == answer:
+        print('答對了！')
+        break
+    elif guess < answer:
+        min = guess
+    else:
+        max = guess
+
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Mar 14 11:16:22 2021
+
+@author: user
+"""
+
+for i in range(5,0,-1):
+    
+    for a in range(0,i):
+        print('*',end='')
+    print()
+
+for i in range(2,6):
+    
+    for a in range(0,i):
+        print('*',end='')
+    print()
+
+print('程式執行完畢')
